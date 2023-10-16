@@ -1,13 +1,13 @@
-#include "print.h"
+#include "main.h"
 
 /*
- *pr_precent - print the precent 
+ *pr_precent - print the precent
  *
- *Return: void
+ *Return: int
  */
 
 int pr_precent(void)
 {
-	_puuchar(37);
+	_putchar(37);
 	return (1);
 }
