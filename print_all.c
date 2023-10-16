@@ -22,13 +22,9 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '%') {
 				x = '%';
-				write(1, &x, 1);
-				i++;
+				return (write(1, &x, 1));
 			}
-			else 
-			{
-				i = linker(format, arg, i);
-			}
+			i = linker(format, arg, i);
 			format++;
 		} else {
 			write(1, format, 1);
