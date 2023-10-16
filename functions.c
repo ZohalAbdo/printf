@@ -1,16 +1,18 @@
 #include "main.h"
 /**
- * strlen - function that count lenght of a string.
+ * _strlen - function that count lenght of a string.
  *@s: string
  *Return:int
  */
-int strlen(char *s)
+int _strlen(const char *s)
 {
 	int i;
 
 	for (i = 0; s[i] != 0; i++)
+	{
 
-		return (i);
+	}
+	return i;
 }
 /**
  * pr_char - function to write character
@@ -36,5 +38,5 @@ int pr_string(va_list arg)
 	const char *s;
 
 	s = va_arg(arg, const char *);
-	return (write(1, s, strlen(s)));
+	return (write(1, s, _strlen(s)));
 }

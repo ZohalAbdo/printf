@@ -3,13 +3,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd>
+#include <unistd.h>
 
 int _printf(const char *format, ...);
-int strlen(char *s);
-int _putchar(char c);
+int _strlen(const char *s);
 int pr_char(va_list arg);
 int pr_string(va_list arg);
+int linker(const char *format, va_list arg, int i);
 /**
  *struct pro - structure for link
  *@format: character
@@ -19,5 +19,5 @@ typedef struct pro
 {
 	char format;
 	int (*function)(va_list arg);
-} link;
+} lk;
 #endif

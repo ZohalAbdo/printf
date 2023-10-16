@@ -3,14 +3,13 @@
  * linker - select for function
  *@format:a list of types of arguments passed to the function
  *@arg:argument
- *@j: int
+ *@i: int
  *Return: int
  */
-int linker(cont char *format, va_list arg, int i)
+int linker(const char *format, va_list arg, int i)
 {
 	int j;
-	link form_s[] =
-	{
+	lk form_s[] = {
 		{'c', pr_char},
 		{'s', pr_string},
 		{'\0', NULL}

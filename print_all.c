@@ -8,28 +8,31 @@
 int _printf(const char *format, ...)
 {
 	int i;
-	char new_l;
+	char new_l, x;
 	va_list arg;
 
 	va_start(arg, format);
-	if (format <= 0)
 
+	if (*format == '\0')
 		return (1);
 
 	i = 0;
-	while (*format != 'NULL')
-	{
-		if (*format == '%')
-		{
+	while (*format != '\0') {
+		if (*format == '%') {
 			format++;
-			i = linker(format, va_arg, i);
+			if (*format == '%') {
+				x = '%';
+				return (write(1, &x, 1));
+			}
+			i = linker(format, arg, i);
+			format++;
+		} else {
+			write(1, format, 1);
+			i++;
 			format++;
 		}
-		else
-			write(1, *format, 1);
-		i++;
-		format++;
 	}
+
 	va_end(arg);
 	new_l = '\n';
 	write(1, &new_l, 1);
