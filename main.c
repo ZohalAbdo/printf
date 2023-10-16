@@ -9,8 +9,13 @@
  */
 int main(void)
 {
-	_printf("Let's try to printf a simple sentence.\n");
-	printf("Let's try to printf a simple sentence.\n");
+	int len;
+	int len2;
+
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+	printf("%d",len);
+	printf("%d",len2);
 	_printf("Let's try to printf a simple sentence.\n");
 	printf("Let's try to printf a simple sentence.\n");
 	_printf("%c\n", 'S');
@@ -28,12 +33,8 @@ int main(void)
 	_printf("css%ccs%scscscs", 'T', "Test");
 	printf("css%ccs%scscscs", 'T', "Test");
 	_printf(NULL);
-	printf(NULL);
 	_printf("%c", '\0');
 	printf("%c", '\0');
 	_printf("%");
-	printf("%");
-	_printf("%K\n");
-	printf("%K\n");
 	return (0);
 }
