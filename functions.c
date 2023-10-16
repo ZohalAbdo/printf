@@ -45,8 +45,13 @@ int pr_string(va_list arg)
 	}
 	return (write(1, s, _strlen(s)));
 }
+/**
+ * pr_unknown - Unknown conversion specifier
+ *@arg: void
+ *Return:int
+ */
 int pr_unknown(va_list arg)
 {
-    (void)arg;
-    return (write(1, "Unknown conversion specifier", 27));
+	(void)arg;
+	return (write(1, "Unknown conversion specifier", 27));
 }
