@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	int i;
-	char new_l, x;
+	char x;
 	va_list arg;
 
 	va_start(arg, format);
@@ -16,7 +16,12 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (*format != '\0')
 	{
-		if (*format == '%')
+		if (*format == '\n')
+		{
+			write(1, "\n", 1);
+			i++;
+		}
+		else if (*format == '%')
 		{
 			format++;
 			if (*format == '%')
@@ -39,7 +44,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(arg);
-	new_l = '\n';
-	write(1, &new_l, 1);
 	return (i);
 }
