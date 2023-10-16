@@ -8,12 +8,13 @@
 int _printf(const char *format, ...)
 {
 	int i;
+	char new_l;
 	va_list arg;
 
 	va_start(arg, format);
 	if (format <= 0)
 
-	return (1);
+		return (1);
 
 	i = 0;
 	while (*format != 'NULL')
@@ -30,5 +31,7 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(arg);
+	new_l = '\n';
+	write(1, &new_l, 1);
 	return (i);
 }

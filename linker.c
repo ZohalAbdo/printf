@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * linker - select for function
  *@format:a list of types of arguments passed to the function
@@ -7,41 +6,30 @@
  *@j: int
  *Return: int
  */
-
-int linker(cont char *format, va_list arg, int j)
+int linker(cont char *format, va_list arg, int i)
 {
-	va_list arg;
-	va_start(arg, format);
-
-	for(j = 0; *format == "\0"; j++)
+	int j;
+	link form_s[] =
 	{
-		link lin[] = {
-			{"s", pr_string(va_list arg)},
-			{"c", pr_char(va_list arg)},
-			{"%", pr_precent(va_list arg)},
-			{"i", pr_integer(va_list arg)},
-			{"d", pr_decimal(va_list arg)}
-		};
-	}
-	va_end(arg);
-	return (j);
-}
-/*
-{
-for(j=0; *format="\0"; j++)
-{
-if (*format == 'c')
-j = pr_string(va_list arg);
-if else (*format == 'c')
-j = pr_char(va_list arg);
+		{'c', pr_char},
+		{'s', pr_string},
+		{'\0', NULL}
+	};
 
-if (*format == '%')
-j = pr_precent(va_list arg);
-if (*format == 'd')
-j = pr_decimal(va_list arg);
-if (*format == 'i')
-j = pr_integer(va_list arg);
+	for (j = 0; form_s[j].format != '\0'; j++)
+	{
+		if (form_s[j].format == *format)
+		{
+			if (form_s[j].function)
+			{
+				i += form_s[j].function(arg);
+			}
+			else
+			{
+				return (-1);
+			}
+			return (i);
+		}
+	}
+	return (-1);
 }
-return (j);
-}
-*/	
