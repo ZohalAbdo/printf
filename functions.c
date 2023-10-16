@@ -12,7 +12,7 @@ int _strlen(const char *s)
 	{
 
 	}
-	return i;
+	return (i);
 }
 /**
  * pr_char - function to write character
