@@ -22,10 +22,11 @@ int _strlen(const char *s)
 int pr_char(va_list arg)
 {
 	char c;
-	char buffer[1];
+	char buffer[2];
 
 	c = va_arg(arg, int);
 	buffer[0] = c;
+	buffer[1] = '\0';
 	return (write(1, buffer, 1));
 }
 /**
@@ -38,5 +39,14 @@ int pr_string(va_list arg)
 	const char *s;
 
 	s = va_arg(arg, const char *);
+	if (s == NULL)
+	{
+		s = "(null)";
+	}
 	return (write(1, s, _strlen(s)));
+}
+int pr_unknown(va_list arg)
+{
+    (void)arg;
+    return (write(1, "Unknown conversion specifier", 27));
 }

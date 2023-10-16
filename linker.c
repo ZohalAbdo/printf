@@ -12,7 +12,7 @@ int linker(const char *format, va_list arg, int i)
 	lk form_s[] = {
 		{'c', pr_char},
 		{'s', pr_string},
-		{'\0', NULL}
+		{'\0', pr_unknown}
 	};
 
 	for (j = 0; form_s[j].format != '\0'; j++)
@@ -25,7 +25,7 @@ int linker(const char *format, va_list arg, int i)
 			}
 			else
 			{
-				return (-1);
+				 i += pr_unknown(arg);
 			}
 			return (i);
 		}
