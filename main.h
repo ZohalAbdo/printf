@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define BUFFER [1024]
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,6 +15,7 @@ int pr_unknown(va_list arg);
 void rev_string(char *s);
 int pr_binary(va_list arg);
 int pr_int(va_list arg);
+int pr_rev_string1(va_list arg);
 /**
  *struct pro - structure for link
  *@format: character

@@ -15,6 +15,7 @@ int linker(const char *format, va_list arg, int i)
 		{'b', pr_binary},
 		{'i', pr_int},
 		{'d', pr_int},
+		{'r', pr_rev_string1},
 		{'\0', pr_unknown}
 	};
 
