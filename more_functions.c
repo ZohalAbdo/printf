@@ -25,33 +25,77 @@ void rev_string(char *s)
 		s[len1--] = tmp;
 	}
 }
-/*
- * pr_binary - function converted unsigned int to binary
+/**
+ *pr_binary - function converted unsigned int to binary
  *@arg: argument
  *Return:int
  */
 int pr_binary(va_list arg)
 {
 	unsigned int x;
+	char buffer[1024];
 	char *s;
 	unsigned int i;
 
-	x = arg;
-	for (i = 0, x >= 0, x = x / 2)
-	{
-		if (x == 0)
-			write(1, &x, 1);
-		return (1);
-		else if (x % 2)
+	x = va_arg(arg, int);
+	if (x == 0)
+		return (write(1, &x, 1));
+	for (i = 0; x > 0; x = x / 2)
 		{
-			s[i] = 0;
+		if (x % 2)
+		{
+			buffer[i++] = 0;
 		}
 		else if (!(x % 2))
 		{
-			s[i] = 1;
+			buffer[i++] = 1;
 		}
-		i++;
-	}
-	rev_string(s);
+		}
+	buffer[0] = '\0';
+	rev_string(buffer);
+	s = buffer;
 	return (write(1, s, _strlen(s)));
+}
+/**
+ *pr_int - function that print integer
+ *@arg: argument
+ *Return:int
+ */
+int pr_int(va_list arg)
+{
+	int num = va_arg(arg, int);
+	char buffer[1024];
+	int i = 0;
+	int salib = 0;
+	int X;
+	char *buffer1;
+
+	if (num == 0)
+	{
+		buffer[i++] = '0';
+	}
+	else
+	{
+		if (num < 0)
+		{
+			salib = 1;
+			num = -num;
+		}
+
+		while (num != 0)
+		{
+			X = num % 10;
+			buffer[i++] = X + '0';
+			num = num / 10;
+		}
+
+		if (salib)
+		{
+			buffer[i++] = '-';
+		}
+	}
+	buffer[0] = '\0';
+	rev_string(buffer);
+	buffer1 = buffer;
+	return (write(1, buffer1, _strlen(buffer1)));
 }
