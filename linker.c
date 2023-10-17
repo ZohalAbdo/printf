@@ -12,6 +12,7 @@ int linker(const char *format, va_list arg, int i)
 	lk form_s[] = {
 		{'c', pr_char},
 		{'s', pr_string},
+		{'b', pr_binary},
 		{'\0', pr_unknown}
 	};
 
