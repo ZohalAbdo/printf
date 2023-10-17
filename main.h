@@ -11,6 +11,8 @@ int pr_char(va_list arg);
 int pr_string(va_list arg);
 int linker(const char *format, va_list arg, int i);
 int pr_unknown(va_list arg);
+void rev_string(char *s);
+int pr_binary(va_list arg);
 /**
  *struct pro - structure for link
  *@format: character
