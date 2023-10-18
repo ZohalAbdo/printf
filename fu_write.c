@@ -4,8 +4,8 @@
  *@buffer: array
  *@l: length
  *Return:void
- */
-void wr_correct (char* buffer, int l)
+ **/
+void wr_correct(char *buffer, int l)
 {
 	int wr = write(1, buffer, l);
 
@@ -20,10 +20,11 @@ void wr_correct (char* buffer, int l)
  *@buffer: array
  *@l: length
  *Return:void
- */
-void wr_error(char* buffer, int l)
+ **/
+void wr_error(char *buffer, int l)
 {
 	int wr = write(2, buffer, l);
+
 	if (wr == -1)
 	{
 		break;
