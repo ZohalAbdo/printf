@@ -33,7 +33,7 @@ void rev_string(char *s)
 int pr_binary(va_list arg)
 {
 	unsigned int x;
-	char buffer[1024];
+	char buffer[BUFFER];
 	char *s;
 	unsigned int i;
 
@@ -41,7 +41,7 @@ int pr_binary(va_list arg)
 	if (x == 0)
 		return (write(1, &x, 1));
 	for (i = 0; x > 0; x = x / 2)
-		{
+	{
 		if (x % 2)
 		{
 			buffer[i++] = 0;
@@ -50,7 +50,7 @@ int pr_binary(va_list arg)
 		{
 			buffer[i++] = 1;
 		}
-		}
+	}
 	buffer[0] = '\0';
 	rev_string(buffer);
 	s = buffer;
@@ -64,7 +64,7 @@ int pr_binary(va_list arg)
 int pr_int(va_list arg)
 {
 	int num = va_arg(arg, int);
-	char buffer[1024];
+	char buffer[BUFFER];
 	int i = 0;
 	int salib = 0;
 	int X;
@@ -98,4 +98,33 @@ int pr_int(va_list arg)
 	rev_string(buffer);
 	buffer1 = buffer;
 	return (write(1, buffer1, _strlen(buffer1)));
+}
+/**
+ *pr_rev_string1 - reverses a string
+ *@arg: string to be reversed
+ *Return:int
+ */
+int pr_rev_string1(va_list arg)
+{
+	char tmp;
+	int i, len, len1;
+	char *s = va_arg(arg, char *);
+
+	len = 0;
+	len1 = 0;
+
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+
+	len1 = len - 1;
+
+	for (i = 0; i < len / 2; i++)
+	{
+		tmp = s[i];
+		s[i] = s[len1];
+		s[len1--] = tmp;
+	}
+	return (len - 1);
 }
