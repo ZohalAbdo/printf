@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * rev_string - reverses a string
- * @s: string to be reversed
+ *@s: string to be reversed
  */
 void rev_string(char *s)
 {
@@ -36,10 +36,13 @@ int pr_binary(va_list arg)
 	char buffer[BUFFER];
 	char *s;
 	unsigned int i;
+	int result;
 
 	x = va_arg(arg, int);
 	if (x == 0)
+	{
 		return (write(1, &x, 1));
+	}
 	for (i = 0; x > 0; x = x / 2)
 	{
 		if (x % 2)
@@ -54,7 +57,12 @@ int pr_binary(va_list arg)
 	buffer[0] = '\0';
 	rev_string(buffer);
 	s = buffer;
-	return (write(1, s, _strlen(s)));
+	result = write(1, s, _strlen(s));
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (result);
 }
 /**
  *pr_int - function that print integer
@@ -67,7 +75,7 @@ int pr_int(va_list arg)
 	char buffer[BUFFER];
 	int i = 0;
 	int salib = 0;
-	int X;
+	int X, result;
 	char *buffer1;
 
 	if (num == 0)
@@ -97,7 +105,12 @@ int pr_int(va_list arg)
 	buffer[0] = '\0';
 	rev_string(buffer);
 	buffer1 = buffer;
-	return (write(1, buffer1, _strlen(buffer1)));
+	result = write(1, buffer1, _strlen(buffer1));
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (result);
 }
 /**
  *pr_rev_string1 - reverses a string

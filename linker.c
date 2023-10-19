@@ -34,5 +34,6 @@ int linker(const char *format, va_list arg, int i)
 			return (i);
 		}
 	}
-	return (-1);
+	i += pr_unknown(arg);
+	return (i);
 }

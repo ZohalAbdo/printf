@@ -22,12 +22,18 @@ int _strlen(const char *s)
 int pr_char(va_list arg)
 {
 	char c;
+	int result;
 	char buffer[2];
 
 	c = va_arg(arg, int);
 	buffer[0] = c;
 	buffer[1] = '\0';
-	return (write(1, buffer, 1));
+	result = write(1, buffer, 1);
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (result);
 }
 /**
  * pr_string - function to write string
@@ -37,14 +43,22 @@ int pr_char(va_list arg)
 int pr_string(va_list arg)
 {
 	const char *s;
+	int result;
 
+	s = malloc(size of (char *) * _strlen(s));
 	s = va_arg(arg, const char *);
 	if (s == NULL)
 	{
 		s = "(null)";
 	}
-	return (write(1, s, _strlen(s)));
+	result = write(1, s, _strlen(s));
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (result);
 }
+
 /**
  * pr_unknown - Unknown conversion specifier
  *@arg: void
@@ -53,5 +67,12 @@ int pr_string(va_list arg)
 int pr_unknown(va_list arg)
 {
 	(void)arg;
-	return (write(1, "Unknown conversion specifier", 27));
+	int result;
+
+	result = write(1, "Unknown conversion specifier", 27);
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (result);
 }

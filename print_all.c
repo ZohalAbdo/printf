@@ -6,14 +6,15 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
+	int i = 0;
 	char x;
 	va_list arg;
 
 	va_start(arg, format);
-	if (*format == '\0')
-		return (1);
-	i = 0;
+	if (format == NULL)
+	{
+		return (-1);
+	}
 	while (*format != '\0')
 	{
 		if (*format == '\n')
@@ -44,5 +45,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(arg);
+	free(s);
 	return (i);
 }
