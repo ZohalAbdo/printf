@@ -43,15 +43,17 @@ int pr_char(va_list arg)
 int pr_string(va_list arg)
 {
 	const char *s;
-	int result;
+	int result, i;
 
-	s = malloc(size of (char *) * _strlen(s));
 	s = va_arg(arg, const char *);
 	if (s == NULL)
 	{
 		s = "(null)";
 	}
-	result = write(1, s, _strlen(s));
+	for (i = 0; i < _strlen(s); i++)
+	{
+	result = write(1, &s[i], 1);
+	}
 	if (result == -1)
 	{
 		return (-1);

@@ -36,7 +36,7 @@ int pr_binary(va_list arg)
 	char buffer[BUFFER];
 	char *s;
 	unsigned int i;
-	int result;
+	int result, z;
 
 	x = va_arg(arg, int);
 	if (x == 0)
@@ -57,7 +57,10 @@ int pr_binary(va_list arg)
 	buffer[0] = '\0';
 	rev_string(buffer);
 	s = buffer;
-	result = write(1, s, _strlen(s));
+	for(z = 0; z < _strlen(s); z++)
+	{
+	result = write(1, &s[i], 1);
+	}
 	if (result == -1)
 	{
 		return (-1);
@@ -75,7 +78,7 @@ int pr_int(va_list arg)
 	char buffer[BUFFER];
 	int i = 0;
 	int salib = 0;
-	int X, result;
+	int X, result, z;
 	char *buffer1;
 
 	if (num == 0)
@@ -105,7 +108,10 @@ int pr_int(va_list arg)
 	buffer[0] = '\0';
 	rev_string(buffer);
 	buffer1 = buffer;
-	result = write(1, buffer1, _strlen(buffer1));
+	for (z = 0; z < _sterlen(buffer1); z++)
+	{
+	result = write(1, &buffer[i], 1);
+	}
 	if (result == -1)
 	{
 		return (-1);
