@@ -60,7 +60,7 @@ int pr_binary(va_list arg)
 	result = write(1, s, _strlen(s));
 	if (result == -1)
 	{
-		perror("write");
+		return (-1);
 	}
 	return (result);
 }
@@ -108,7 +108,7 @@ int pr_int(va_list arg)
 	result = write(1, buffer1, _strlen(buffer1));
 	if (result == -1)
 	{
-		perror("write");
+		return (-1);
 	}
 	return (result);
 }

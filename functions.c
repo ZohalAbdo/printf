@@ -31,7 +31,7 @@ int pr_char(va_list arg)
 	result = write(1, buffer, 1);
 	if (result == -1)
 	{
-		perror("write");
+		return (-1);
 	}
 	return (result);
 }
@@ -53,7 +53,7 @@ int pr_string(va_list arg)
 	result = write(1, s, _strlen(s));
 	if (result == -1)
 	{
-		perror("write");
+		return (-1);
 	}
 	return (result);
 }
@@ -67,10 +67,11 @@ int pr_unknown(va_list arg)
 {
 	(void)arg;
 	int result;
+
 	result = write(1, "Unknown conversion specifier", 27);
 	if (result == -1)
 	{
-		perror("write");
+		return (-1);
 	}
 	return (result);
 }
