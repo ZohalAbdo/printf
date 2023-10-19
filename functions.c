@@ -45,6 +45,7 @@ int pr_string(va_list arg)
 	const char *s;
 	int result;
 
+	s = malloc(size of (char *) * _strlen(s));
 	s = va_arg(arg, const char *);
 	if (s == NULL)
 	{
