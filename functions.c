@@ -69,12 +69,6 @@ int pr_string(va_list arg)
 int pr_unknown(va_list arg)
 {
 	(void)arg;
-	unsigned int result;
 
-	result = write(1, "Unknown conversion specifier", 27);
-	if (result == -1)
-	{
-		return (-1);
-	}
-	return (result);
+	return (write(1, "Unknown conversion specifier", 27));
 }
