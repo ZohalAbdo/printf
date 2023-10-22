@@ -108,7 +108,7 @@ int pr_int(va_list arg)
 	buffer[0] = '\0';
 	rev_string(buffer);
 	buffer1 = buffer;
-	for (z = 0; z < _sterlen(buffer1); z++)
+	for (z = 0; z < _strlen(buffer1); z++)
 	{
 	result = write(1, &buffer[i], 1);
 	}
